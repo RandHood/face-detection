@@ -59,7 +59,7 @@ def face_detection_video(arglist):
         cap = cv2.VideoCapture(0)
     else:
         # To use a video file as input
-        if arglist.source != "fancy.jpg":
+        if '.mp4' in arglist.source:
             source = "media\\" + arglist.source
         else:
             source = "media\Faces from around the world.mp4"
