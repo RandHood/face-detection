@@ -38,9 +38,9 @@ python face_detection.py --webcam
 Will take a webcam picture and use it.
 
 ```
-python face_detection.py --source ocean.jpg
+python face_detection.py --source fancy.jpg
 ```
-Will use the image `ocean.jpg` from the media folder.
+Will use the image `fancy.jpg` from the media folder.
 
 ```
 python face_detection.py --type 2 --webcam
