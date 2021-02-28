@@ -5,7 +5,7 @@ import os.path
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--source", type=str, default="fancy.jpg", help="the source material to work on")
+    parser.add_argument("--source", type=str, default="friends.jpg", help="the source material to work on")
     parser.add_argument("--type", type=int, default=1, help="source type, 1 for image, 2 for video")
     parser.add_argument("--webcam", action="store_true", default=False)
     return parser.parse_args()
