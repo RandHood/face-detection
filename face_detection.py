@@ -21,7 +21,7 @@ def webcam_picture():
         destroyWindow("cam-test")
         imwrite("media\webcam_image.jpg", img) #save image
 
-def image_face_detection(arglist):
+def face_detection_image(arglist):
     # Getting the model path
     my_path = os.path.abspath(os.path.dirname(__file__))
     model_path = os.path.join(my_path, 'models\haarcascade_frontalface_default.xml')
@@ -47,7 +47,47 @@ def image_face_detection(arglist):
     cv2.imshow('img', img)
     cv2.waitKey()
 
+def face_detection_video(arglist):
+    # Getting the model path
+    my_path = os.path.abspath(os.path.dirname(__file__))
+    model_path = os.path.join(my_path, 'models\haarcascade_frontalface_default.xml')
+    # Load the cascade
+    face_cascade = cv2.CascadeClassifier(model_path)
+
+    if arglist.webcam:
+        # To capture video from webcam. 
+        cap = cv2.VideoCapture(0)
+    else:
+        # To use a video file as input
+        if arglist.source != "fancy.jpg":
+            source = "media\\" + arglist.source
+        else:
+            source = "media\Faces from around the world.mp4"
+        video_path = os.path.join(my_path, source)
+        cap = cv2.VideoCapture(video_path)
+
+    while True:
+        # Read the frame
+        _, img = cap.read()
+        # Convert to grayscale
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        # Detect the faces
+        faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+        # Draw the rectangle around each face
+        for (x, y, w, h) in faces:
+            cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        # Display
+        cv2.imshow('img', img)
+        # Stop if escape key is pressed
+        k = cv2.waitKey(30) & 0xff
+        if k == 27:
+            break
+    # Release the VideoCapture object
+    cap.release()
+
 if __name__ == '__main__':
     arglist = parse_args()
     if arglist.type == 1:
-        image_face_detection(arglist)
+        face_detection_image(arglist)
+    else:
+        face_detection_video(arglist)
