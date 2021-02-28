@@ -2,6 +2,8 @@
 
 Simple Face Detection using Python and OpenCV.
 
+<img src="https://github.com/RandHood/face-detection/blob/main/output_samples/friends.png" alt="Sample Output">
+
 ---
 
 ## Arguments
@@ -28,7 +30,7 @@ Simple Face Detection using Python and OpenCV.
 
 ---
 
-### Examples:
+### Examples
 
 ```
 python face_detection.py --webcam
@@ -43,4 +45,4 @@ Will use the image `ocean.jpg` from the media folder.
 ```
 python face_detection.py --type 2 --webcam
 ```
-Will use webcam stream as a video
+Will use webcam stream as a video.
