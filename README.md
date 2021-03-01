@@ -6,6 +6,11 @@ Simple Face Detection using Python and OpenCV.
 
 ---
 
+Make sure you have OpenCV installed:
+```
+$ pip install opencv-python
+```
+
 ## Arguments
 
 ### `--type`
@@ -33,16 +38,16 @@ Simple Face Detection using Python and OpenCV.
 ### Examples
 
 ```
-python face_detection.py --webcam
+$ python face_detection.py --webcam
 ```
 Will take a webcam picture and use it.
 
 ```
-python face_detection.py --source fancy.jpg
+$ python face_detection.py --source fancy.jpg
 ```
 Will use the image `fancy.jpg` from the media folder.
 
 ```
-python face_detection.py --type 2 --webcam
+$ python face_detection.py --type 2 --webcam
 ```
 Will use webcam stream as a video.
